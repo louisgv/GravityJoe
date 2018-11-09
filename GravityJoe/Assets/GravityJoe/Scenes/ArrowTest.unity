@@ -252,7 +252,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &489824961
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -349,8 +349,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCharge: 2
-  arrow: {fileID: 1011300490934924, guid: b18f93bdbd0dfc24283cbd96b11e0afb, type: 2}
-  missile: {fileID: 1404692546117010, guid: 2277a3d27efc1b0418b243ce699264f1, type: 2}
+  arrow: {fileID: 114994054632774948, guid: b18f93bdbd0dfc24283cbd96b11e0afb, type: 2}
+  missile: {fileID: 114394915649611218, guid: 2277a3d27efc1b0418b243ce699264f1, type: 2}
   arrowSpeed: 20
   missileSpeed: 10
   explosionRadius: 5

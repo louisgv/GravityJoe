@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GravityJoe
 {
 
-    public class ArrowScript : MonoBehaviour
+    public class Arrow: MonoBehaviour
     {
 
         bool isStuck = false;

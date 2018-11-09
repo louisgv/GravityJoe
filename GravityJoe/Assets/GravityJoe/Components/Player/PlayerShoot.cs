@@ -9,10 +9,11 @@ namespace GravityJoe
         float chargeBeginTime = -1.0f;
         float timeOfLastFire = -1.0f;
         bool isCharging = false;
+
         public float maxCharge = 2.0f;
 
-        public ArrowScript arrow;
-        public MissileScript missile;
+        public Arrow arrow;
+        public Missile missile;
 
         public float arrowSpeed;
         public float missileSpeed;
@@ -87,7 +88,7 @@ namespace GravityJoe
         {
             Vector2 mouseDir = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.position)).normalized;
 
-            ArrowScript newArrow = Instantiate(arrow, gameObject.transform.position, Quaternion.identity);
+            Arrow newArrow = Instantiate(arrow, gameObject.transform.position, Quaternion.identity);
 
             newArrow.GetComponent<Rigidbody2D>().AddForce(mouseDir * arrowSpeed * magnitude, ForceMode2D.Impulse);
 
@@ -98,7 +99,7 @@ namespace GravityJoe
         {
             Vector2 mouseDir = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.position)).normalized;
 
-            MissileScript newMissile = Instantiate(missile, gameObject.transform.position, Quaternion.identity);
+            Missile newMissile = Instantiate(missile, gameObject.transform.position, Quaternion.identity);
             newMissile.missileSpd = missileSpeed;
             newMissile.explosionRadius = explosionRadius;
             newMissile.explosionMagnitude = explosionMagnitude;

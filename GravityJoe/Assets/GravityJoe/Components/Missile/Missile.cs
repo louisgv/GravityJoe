@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GravityJoe
 {
 
-    public class MissileScript : MonoBehaviour
+    public class Missile : MonoBehaviour
     {
 
         public float missileSpd;
@@ -38,11 +38,14 @@ namespace GravityJoe
                         isDead = true;
                         GameObject playerRef = GravityJoe.Utility.GetPlayer();
                         float sqrDist = (playerRef.transform.position - gameObject.transform.position).sqrMagnitude;
-                        Debug.Log("Distance squared: " + sqrDist);
-                        if (sqrDist <= explosionRadius * explosionRadius)
+
+                        float explosionRadiusSqr = explosionRadius * explosionRadius;
+
+                        if (sqrDist <= explosionRadiusSqr)
                         {
-                            float ratio = 1.0f - (sqrDist / (explosionRadius * explosionRadius));
-                            Debug.Log("Ratio: " + ratio);
+                            float ratio = 1.0f - (sqrDist / (explosionRadiusSqr));
+
+
                             Vector2 playerToMissileDir = (Vector2)(playerRef.transform.position - gameObject.transform.position).normalized;
                             playerRef.GetComponent<Rigidbody2D>().AddForce(playerToMissileDir * explosionMagnitude * ratio, ForceMode2D.Impulse);
                         }
