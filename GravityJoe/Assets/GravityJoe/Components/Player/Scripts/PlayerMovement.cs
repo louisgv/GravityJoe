@@ -8,8 +8,6 @@ public class PlayerMovement : MonoBehaviour {
     Rigidbody2D rb2d;
     public float move;
 
-    public float multiplier;
-
     // jump booleans to determine if on the ground and when you can double jump
     public bool grounded;
     public bool doubleJump;
@@ -33,7 +31,6 @@ public class PlayerMovement : MonoBehaviour {
         doubleJump = false;
         groundRadius = .1f;
         inAir = 1f;
-        multiplier = 1f;
 	}
 	
 	// Update is called once per frame
@@ -67,7 +64,7 @@ public class PlayerMovement : MonoBehaviour {
         move = Input.GetAxis("Horizontal");
 
         // change velocity based on input
-        rb2d.velocity = new Vector2((move * inAir * multiplier) * 10f, rb2d.velocity.y);
+        rb2d.velocity = new Vector2((move * inAir) * 10f, rb2d.velocity.y);
 	}
     
 
