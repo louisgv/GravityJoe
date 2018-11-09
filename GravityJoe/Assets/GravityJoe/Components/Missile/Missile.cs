@@ -28,7 +28,7 @@ namespace GravityJoe
             {
                 rb.AddForce(gameObject.transform.right * missileSpd);
                 gameObject.transform.right = ((Vector2)(rb.velocity)).normalized;
-                GameObject[] walls = GravityJoe.Utility.GetWalls();
+                GameObject[] walls = Utility.GetWalls();
                 for (int i = 0; i < walls.Length; i++)
                 {
                     if (GravityJoe.Utility.CheckCollisions(gameObject, walls[i]))
@@ -36,7 +36,7 @@ namespace GravityJoe
                         rb.isKinematic = true;
                         rb.velocity = Vector3.zero;
                         isDead = true;
-                        GameObject playerRef = GravityJoe.Utility.GetPlayer();
+                        Player playerRef = Utility.GetPlayer();
                         float sqrDist = (playerRef.transform.position - gameObject.transform.position).sqrMagnitude;
 
                         float explosionRadiusSqr = explosionRadius * explosionRadius;
