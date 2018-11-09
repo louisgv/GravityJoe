@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour {
     public GameObject currentDeathObject;
     public List<GameObject> currentHangingObjects;
     public List<GameObject> currentDestructibleWalls;
+    public List<GameObject> currentDeathObjects;
+    public List<GameObject> currentPlatforms;
 
 
     // Use this for initialization
@@ -31,11 +33,11 @@ public class GameManager : MonoBehaviour {
             currentPlayer = Instantiate(playerBase, Vector3.zero, Quaternion.identity);
 
         // creates one platform and one death object for testing
-        currentPlatform = Instantiate(platformBase, new Vector3(0, -5f, 0), Quaternion.identity);
-        currentDeathObject = Instantiate(deathObjectBase, new Vector3(3.5f, -4f, 0), Quaternion.identity);
+        currentPlatforms.Add(Instantiate(platformBase, new Vector3(0, -5f, 0), Quaternion.identity));
+        currentDeathObjects.Add(Instantiate(deathObjectBase, new Vector3(3.5f, -4f, 0), Quaternion.identity));
 
         // sets death object's player GameObject to the current player object (for testing)
-        currentDeathObject.GetComponent<DeathHandler>().player = currentPlayer;
+        currentDeathObjects[0].GetComponent<DeathHandler>().player = currentPlayer;
         
 	}
 	
@@ -45,10 +47,18 @@ public class GameManager : MonoBehaviour {
         // resets player and player object in death object if the player dies (for testing)
         if (currentPlayer == null)
         {
-            currentPlayer = Instantiate(playerBase, Vector3.zero, Quaternion.identity);
-            currentDeathObject.GetComponent<DeathHandler>().player = currentPlayer;
+            ResetPlayer();
+            ResetDestructibleObjects();
+            ResetLevelOrientation();
         }
             
+    }
+
+    // used to reset player
+    void ResetPlayer()
+    {
+        currentPlayer = Instantiate(playerBase, Vector3.zero, Quaternion.identity);
+        currentDeathObjects[0].GetComponent<DeathHandler>().player = currentPlayer;
     }
 
     // used to reset destructible objects
