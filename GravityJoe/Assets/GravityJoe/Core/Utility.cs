@@ -12,9 +12,22 @@ namespace GravityJoe {
 			return (T)values.GetValue(random);
 		}
 		
-		public static GameObject GetPlayer()
+		public static Player GetPlayer()
 		{
-			return GameObject.FindGameObjectWithTag("Player");
+            GameObject test = GameObject.FindGameObjectWithTag("Player");
+            if (test)
+            {
+                return test.GetComponent<Player>();
+            }
+            else
+            {
+                return null;
+            }
 		}
+
+        public static GameManager GetGameManager()
+        {
+            return GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        }
     }
 }
