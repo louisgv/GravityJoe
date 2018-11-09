@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 81524224573997132}
   m_Layer: 0
   m_Name: PlayerCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 50712923289276362}
   - component: {fileID: 114027580516844444}
   - component: {fileID: 114537113778828196}
+  - component: {fileID: 114003569952869124}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -272,6 +273,25 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295617260514572}
   m_Enabled: 1
+--- !u!114 &114003569952869124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1403245586727576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c94f7515e237b945a71ded9c9dedb06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCharge: 2
+  arrow: {fileID: 114994054632774948, guid: b18f93bdbd0dfc24283cbd96b11e0afb, type: 2}
+  missile: {fileID: 114394915649611218, guid: 2277a3d27efc1b0418b243ce699264f1, type: 2}
+  arrowSpeed: 20
+  missileSpeed: 20
+  explosionRadius: 5
+  explosionMagnitude: 10
+  timeBetweenShots: 1
 --- !u!114 &114027580516844444
 MonoBehaviour:
   m_ObjectHideFlags: 1
