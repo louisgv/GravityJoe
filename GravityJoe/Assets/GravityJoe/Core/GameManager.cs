@@ -34,7 +34,7 @@ namespace GravityJoe
         void Start()
         {
             // check if player already exists, if not, spawn one
-            if (GravityJoe.Utility.GetPlayer() == null)
+            if (Utility.GetPlayer() == null)
                 currentPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
 
             // creates one platform and one death object for testing
