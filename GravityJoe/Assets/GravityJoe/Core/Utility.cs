@@ -1,29 +1,27 @@
 using System;
 using UnityEngine;
 
-namespace GravityJoe {
-	public static class Utility
-	{
-		
-		  public static T RandomEnumValue<T>()
-		  {
-			  var values = Enum.GetValues(typeof(T));
-			  int random = UnityEngine.Random.Range(0, values.Length);
-			  return (T)values.GetValue(random);
-		  }
-		
-		  public static Player GetPlayer()
-	  	{
-            GameObject test = GameObject.FindGameObjectWithTag("Player");
-            if (test)
-            {
-                return test.GetComponent<Player>();
-            }
-            else
-            {
-                return null;
-            }
-  		}
+namespace GravityJoe
+{
+    public static class Utility
+    {
+
+        public static T RandomEnumValue<T>()
+        {
+            var values = Enum.GetValues(typeof(T));
+            int random = UnityEngine.Random.Range(0, values.Length);
+            return (T)values.GetValue(random);
+        }
+
+        public static Player GetPlayer()
+        {
+            return GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        }
+
+        public static Platform GetPlatform()
+        {
+            return GameObject.FindGameObjectWithTag("Platform").GetComponent<Platform>();
+        }
 
         public static GameObject[] GetWalls()
         {

@@ -8,17 +8,48 @@ namespace GravityJoe
     public class Missile : MonoBehaviour
     {
 
-        public float missileSpd;
+        public float speed;
         public bool isDead = false;
-        Rigidbody2D rb;
+
+        new Rigidbody2D rigidbody;
+        new Collider2D collider;
+
         public float explosionRadius;
         public float explosionMagnitude;
 
         // Use this for initialization
         void Start()
         {
-            rb = gameObject.GetComponent<Rigidbody2D>();
-            rb.AddForce(gameObject.transform.right * missileSpd * 2, ForceMode2D.Impulse);
+            rigidbody = gameObject.GetComponent<Rigidbody2D>();
+            collider = GetComponent<BoxCollider2D>();
+
+            rigidbody.AddForce(transform.right * speed * 2, ForceMode2D.Impulse);
+        }
+
+        void OnTriggerEnter2D(Collider2D col)
+        {
+            if (col.CompareTag("Wall"))
+            {
+                rigidbody.isKinematic = true;
+                rigidbody.velocity = Vector3.zero;
+                isDead = true;
+
+                Player playerRef = Utility.GetPlayer();
+                float sqrDist = (playerRef.transform.position - gameObject.transform.position).sqrMagnitude;
+
+                float explosionRadiusSqr = explosionRadius * explosionRadius;
+
+                if (sqrDist <= explosionRadiusSqr)
+                {
+                    float ratio = 1.0f - (sqrDist / (explosionRadiusSqr));
+
+                    Vector2 playerToMissileDir = (playerRef.transform.position - transform.position).normalized;
+                    playerRef.GetComponent<Rigidbody2D>().AddForce(playerToMissileDir * explosionMagnitude * ratio, ForceMode2D.Impulse);
+                }
+
+                // TODO: Spawn some FX and blow this up
+                // Destroy(gameObject);
+            }
         }
 
         // Update is called once per frame
@@ -26,31 +57,8 @@ namespace GravityJoe
         {
             if (!isDead)
             {
-                rb.AddForce(gameObject.transform.right * missileSpd);
-                gameObject.transform.right = ((Vector2)(rb.velocity)).normalized;
-                GameObject[] walls = Utility.GetWalls();
-                for (int i = 0; i < walls.Length; i++)
-                {
-                    if (GravityJoe.Utility.CheckCollisions(gameObject, walls[i]))
-                    {
-                        rb.isKinematic = true;
-                        rb.velocity = Vector3.zero;
-                        isDead = true;
-                        Player playerRef = Utility.GetPlayer();
-                        float sqrDist = (playerRef.transform.position - gameObject.transform.position).sqrMagnitude;
-
-                        float explosionRadiusSqr = explosionRadius * explosionRadius;
-
-                        if (sqrDist <= explosionRadiusSqr)
-                        {
-                            float ratio = 1.0f - (sqrDist / (explosionRadiusSqr));
-
-
-                            Vector2 playerToMissileDir = (Vector2)(playerRef.transform.position - gameObject.transform.position).normalized;
-                            playerRef.GetComponent<Rigidbody2D>().AddForce(playerToMissileDir * explosionMagnitude * ratio, ForceMode2D.Impulse);
-                        }
-                    }
-                }
+                rigidbody.AddForce(transform.right * speed);
+                transform.right = rigidbody.velocity.normalized;
             }
         }
     }

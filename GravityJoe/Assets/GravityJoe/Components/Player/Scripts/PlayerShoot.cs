@@ -15,16 +15,20 @@ namespace GravityJoe
         public Arrow arrow;
         public Missile missile;
 
-        public float arrowSpeed;
-        public float missileSpeed;
-        public float explosionRadius;
-        public float explosionMagnitude;
+        public float arrowSpeed = 20.0f;
+        public float missileSpeed = 20.0f;
+        public float explosionRadius = 5.0f;
+        public float explosionMagnitude = 10.0f;
         public float timeBetweenShots = 1.0f;
+
+        Platform currentPlatform;
+
         WEAPON currentWeapon = WEAPON.BOW;
 
         // Use this for initialization
         void Start()
         {
+            currentPlatform = Utility.GetPlatform();
 
         }
 
@@ -71,8 +75,15 @@ namespace GravityJoe
             {
                 isCharging = false;
                 float mag = (Time.time - chargeBeginTime) / maxCharge;
-                if (mag > 1.0f) mag = 1.0f;
-                if (mag > 0.5) FireArrow(mag);
+                if (mag > 1.0f)
+                {
+                    mag = 1.0f;
+                }
+
+                if (mag > .5f)
+                {
+                    FireArrow(mag);
+                }
             }
         }
 
@@ -86,25 +97,30 @@ namespace GravityJoe
 
         void FireArrow(float magnitude)
         {
-            Vector2 mouseDir = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.position)).normalized;
+            Vector2 mouseDir = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
 
-            Arrow newArrow = Instantiate(arrow, gameObject.transform.position, Quaternion.identity);
+            Arrow newArrow = Instantiate(arrow, transform.position + (Vector3)mouseDir, Quaternion.identity);
 
             newArrow.GetComponent<Rigidbody2D>().AddForce(mouseDir * arrowSpeed * magnitude, ForceMode2D.Impulse);
 
             timeOfLastFire = Time.time;
+
+            newArrow.transform.SetParent(currentPlatform.transform);
         }
 
         void FireMissile()
         {
-            Vector2 mouseDir = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.position)).normalized;
+            Vector2 mouseDir = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
 
-            Missile newMissile = Instantiate(missile, gameObject.transform.position, Quaternion.identity);
-            newMissile.missileSpd = missileSpeed;
+            Missile newMissile = Instantiate(missile, transform.position + (Vector3)mouseDir, Quaternion.identity);
+
+            newMissile.speed = missileSpeed;
             newMissile.explosionRadius = explosionRadius;
             newMissile.explosionMagnitude = explosionMagnitude;
             newMissile.transform.right = mouseDir;
             timeOfLastFire = Time.time;
+
+            newMissile.transform.SetParent(currentPlatform.transform);
         }
     }
 }

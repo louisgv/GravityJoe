@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - GameManager
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,6 @@ TagManager:
   - 
   - 
   - Player
-  - 
   - 
   - 
   - 

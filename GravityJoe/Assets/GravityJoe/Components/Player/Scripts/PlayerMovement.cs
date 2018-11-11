@@ -17,6 +17,7 @@ namespace GravityJoe
         public Transform groundCheck;
         public LayerMask currentGround;
 
+
         // radius of checking if on the ground
         float groundRadius;
 
@@ -69,7 +70,5 @@ namespace GravityJoe
             // change velocity based on input
             rb2d.velocity = new Vector2((move * inAir) * 10f, rb2d.velocity.y);
         }
-
-
     }
 }
