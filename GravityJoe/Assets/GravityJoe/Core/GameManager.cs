@@ -57,7 +57,7 @@ namespace GravityJoe
         // used to reset level orientation
         void ResetLevelOrientation()
         {
-
+            currentPlatform.ResetRotation();
         }
     }
 

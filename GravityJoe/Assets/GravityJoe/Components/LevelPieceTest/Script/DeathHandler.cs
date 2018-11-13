@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 
-public class DeathHandler : MonoBehaviour
+namespace GravityJoe
 {
 
-    // player info to find collision for this platform object
-    void OnTriggerEnter2D(Collider2D col)
+    public class DeathHandler : MonoBehaviour
     {
-        if (col.CompareTag("Player"))
+
+        // player info to find collision for this platform object
+        void OnTriggerEnter2D(Collider2D col)
         {
-            Destroy(col.gameObject);
+            if (col.CompareTag("Player"))
+            {
+                Destroy(col.gameObject);
+            }
         }
     }
 }

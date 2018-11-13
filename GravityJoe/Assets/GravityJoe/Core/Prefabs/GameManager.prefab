@@ -55,7 +55,5 @@ MonoBehaviour:
     type: 2}
   hangingObjectPrefab: {fileID: 0}
   destructibleWallPrefab: {fileID: 0}
-  currentPlayer: {fileID: 0}
-  currentPlatform: {fileID: 0}
   currentHangingObjects: []
   currentDestructibleWalls: []
