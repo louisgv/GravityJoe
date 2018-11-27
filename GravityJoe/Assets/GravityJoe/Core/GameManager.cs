@@ -29,24 +29,18 @@ namespace GravityJoe
             currentPlatform = Utility.GetPlatform();
         }
 
-        // Update is called once per frame
-        void Update()
+        public void ResetLevel()
         {
-
-            // resets player and player object in death object if the player dies (for testing)
-            if (currentPlayer == null)
-            {
-                ResetPlayer();
-                ResetDestructibleObjects();
-                ResetLevelOrientation();
-            }
-
+            ResetDestructibleObjects();
+            ResetLevelOrientation();
+            ResetPlayer();
         }
 
         // used to reset player
         void ResetPlayer()
         {
-            currentPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+            currentPlayer.transform.position = Vector3.zero;
+            currentPlayer.transform.rotation = Quaternion.identity;
         }
 
         // used to reset destructible objects

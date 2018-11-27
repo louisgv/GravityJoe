@@ -25,11 +25,13 @@ namespace GravityJoe
 
         public void ResetRotation()
         {
+            player.transform.SetParent(null);
+
             StopAllCoroutines();
 
             transform.rotation = rotateAngle = Quaternion.identity;
 
-            player = Utility.GetPlayer();
+            bRotating = false;
         }
 
         void Update()
