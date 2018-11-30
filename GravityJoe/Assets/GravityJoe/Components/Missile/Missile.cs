@@ -44,12 +44,14 @@ namespace GravityJoe
                     float ratio = 1.0f - (sqrDist / (explosionRadiusSqr));
 
                     Vector2 playerToMissileDir = (playerRef.transform.position - transform.position).normalized;
-                    playerRef.GetComponent<Rigidbody2D>().AddForce(playerToMissileDir * explosionMagnitude * ratio, ForceMode2D.Impulse);
+                    Utility.GetPlayer().Movement.rb2d.AddForce(playerToMissileDir * explosionMagnitude * ratio, ForceMode2D.Impulse);
                 }
 
                 // TODO: Spawn some FX and blow this up
                 // Destroy(gameObject);
             }
+
+            Debug.Log(Utility.GetPlayer().Movement.rb2d.velocity);
         }
 
         // Update is called once per frame

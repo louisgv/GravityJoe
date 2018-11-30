@@ -13,7 +13,7 @@ namespace GravityJoe
 
         bool bRotating;
 
-        Quaternion rotateAngle;
+        public Quaternion rotateAngle;
 
         Player player;
 
@@ -43,8 +43,14 @@ namespace GravityJoe
                     StopAllCoroutines();
 
                     rotateAngle = rotateAngle * Quaternion.Euler(-Vector3.forward * 90.0f);
+                    ///
+                    Utility.GetPlayer().Movement.index++;
+                    if (Utility.GetPlayer().Movement.index >= 4)
+                        Utility.GetPlayer().Movement.index = 0;
+                    Utility.GetPlayer().Movement.fallingAlignment = true;
+                    ///
                     StartCoroutine(Rotate());
-
+                    
                 }
 
                 if (Input.GetButtonDown("RotateLeft"))
@@ -53,6 +59,12 @@ namespace GravityJoe
 
                     rotateAngle = rotateAngle * Quaternion.Euler(Vector3.forward * 90.0f);
 
+                    ///
+                    Utility.GetPlayer().Movement.index--;
+                    if (Utility.GetPlayer().Movement.index <= -1)
+                        Utility.GetPlayer().Movement.index = 3;
+                    Utility.GetPlayer().Movement.fallingAlignment = true;
+                    ///
                     StartCoroutine(Rotate());
                 }
             }

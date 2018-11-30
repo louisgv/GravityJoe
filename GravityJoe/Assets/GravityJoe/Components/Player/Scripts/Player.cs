@@ -7,6 +7,11 @@ namespace GravityJoe {
 
         PlayerMovement movement;
 
+        void Awake()
+        {
+            movement = this.GetComponent<PlayerMovement>();
+        }
+
         public PlayerMovement Movement
         {
             get
