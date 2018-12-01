@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/GravityJoe/Scenes/MainMenu.unity
+    guid: 69d7b435fbb38aa44bf5a8ebb3fddfcc
+  - enabled: 1
+    path: Assets/GravityJoe/Scenes/Instructions.unity
+    guid: 10955cc24e7c42c4c827a05c0df2e85f
+  - enabled: 1
+    path: Assets/GravityJoe/Scenes/Credits.unity
+    guid: 04c880df41e0ea444ad5e1c627659f3e
+  - enabled: 1
     path: Assets/GravityJoe/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
