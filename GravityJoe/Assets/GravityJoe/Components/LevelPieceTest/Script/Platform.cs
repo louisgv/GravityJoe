@@ -9,7 +9,7 @@ namespace GravityJoe
 
         public float rotateAmount = 90.0f;
 
-        public float rotateTime = 1.0f;
+        float rotateTime = .5f;
 
         bool bRotating;
 
@@ -26,7 +26,8 @@ namespace GravityJoe
         public void ResetRotation()
         {
             player.transform.SetParent(null);
-
+            player.transform.rotation = Quaternion.identity;
+            player.Movement.rb2d.isKinematic = false;
             StopAllCoroutines();
 
             transform.rotation = rotateAngle = Quaternion.identity;
@@ -68,20 +69,24 @@ namespace GravityJoe
             if (player != null)
             {
                 player.transform.SetParent(transform);
+                player.Movement.rb2d.isKinematic = true;
+                player.Movement.rb2d.velocity = Vector2.zero;
             }
 
-            for (float i = 0.0f; i < rotateTime; i += timeStep)
+            for (float i = 0.0f; i < 1.0f; i += timeStep)
             {
                 transform.rotation = Quaternion.Lerp(fromAngle, rotateAngle, i);
                 yield return null;
             }
+            transform.rotation = rotateAngle;
+
             if (player != null)
             {
                 player.transform.SetParent(null);
                 player.transform.rotation = Quaternion.identity;
+                player.Movement.rb2d.isKinematic = false;
             }
 
-            transform.rotation = rotateAngle;
 
             bRotating = false;
         }
