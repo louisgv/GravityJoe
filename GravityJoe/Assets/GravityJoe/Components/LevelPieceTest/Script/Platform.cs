@@ -39,7 +39,7 @@ namespace GravityJoe
         {
             if (!bRotating)
             {
-                if (Input.GetButtonDown("RotateRight"))
+                if (Input.GetButtonDown("RotateLeft"))
                 {
                     StopAllCoroutines();
 
@@ -48,7 +48,7 @@ namespace GravityJoe
 
                 }
 
-                if (Input.GetButtonDown("RotateLeft"))
+                if (Input.GetButtonDown("RotateRight"))
                 {
                     StopAllCoroutines();
 
@@ -70,7 +70,7 @@ namespace GravityJoe
             {
                 player.transform.SetParent(transform);
                 player.Movement.rb2d.isKinematic = true;
-                player.Movement.rb2d.velocity = Vector2.zero;
+                //player.Movement.rb2d.velocity = Vector2.zero;
             }
 
             for (float i = 0.0f; i < 1.0f; i += timeStep)
