@@ -6,7 +6,7 @@ namespace GravityJoe
     public class PlayerMovement : MonoBehaviour
     {
         // holds rigid body for this object
-        Rigidbody2D rb2d;
+        public Rigidbody2D rb2d;
         public float move;
 
         // jump booleans to determine if on the ground and when you can double jump
