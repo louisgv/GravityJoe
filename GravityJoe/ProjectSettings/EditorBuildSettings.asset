@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GravityJoe/Scenes/Level5.unity
     guid: 7edb907a59866cb43a7ce19a0b754802
+  - enabled: 1
+    path: Assets/GravityJoe/Scenes/Level6.unity
+    guid: 91b6e3511d94bb744a76aa3db15c0efa
   m_configObjects: {}

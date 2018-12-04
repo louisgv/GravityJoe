@@ -850,7 +850,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateAmount: 90
-  rotateTime: 1
 --- !u!4 &766499991
 Transform:
   m_ObjectHideFlags: 0
@@ -2473,7 +2472,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &1817844352
 MeshRenderer:
   m_ObjectHideFlags: 0

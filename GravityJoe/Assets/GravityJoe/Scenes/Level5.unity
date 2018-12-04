@@ -1232,8 +1232,8 @@ Transform:
   - {fileID: 23089764}
   - {fileID: 2064247179}
   - {fileID: 507685368}
-  - {fileID: 1686981421}
   - {fileID: 776640096}
+  - {fileID: 1686981421}
   - {fileID: 1614851545}
   m_Father: {fileID: 1618050879}
   m_RootOrder: 3
@@ -1601,6 +1601,26 @@ Prefab:
     - target: {fileID: 1921994493796574, guid: 62ebe8339e75b5345a516579470e3a7f, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224834487361957618, guid: 62ebe8339e75b5345a516579470e3a7f,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224834487361957618, guid: 62ebe8339e75b5345a516579470e3a7f,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224834487361957618, guid: 62ebe8339e75b5345a516579470e3a7f,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224834487361957618, guid: 62ebe8339e75b5345a516579470e3a7f,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62ebe8339e75b5345a516579470e3a7f, type: 2}
@@ -2562,7 +2582,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateAmount: 90
-  rotateTime: 1
 --- !u!4 &1618050879
 Transform:
   m_ObjectHideFlags: 0
@@ -2677,8 +2696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf977e5ee34f43841baeade4dd169a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endGame: 1
-  nextLevelName: Level2
+  endGame: 0
+  nextLevelName: Level6
   winText: {fileID: 53539661}
 --- !u!61 &1669342374
 BoxCollider2D:
@@ -3101,7 +3120,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &1817844352
 MeshRenderer:
   m_ObjectHideFlags: 0
