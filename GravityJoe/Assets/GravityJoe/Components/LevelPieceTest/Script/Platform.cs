@@ -13,7 +13,7 @@ namespace GravityJoe
 
         bool bRotating;
 
-        Quaternion rotateAngle;
+        public Quaternion rotateAngle;
 
         Player player;
 

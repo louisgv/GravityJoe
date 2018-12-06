@@ -1188,7 +1188,7 @@ Prefab:
     - target: {fileID: 114423781767858076, guid: dce7142c56cd4a549ab481ea802eef99,
         type: 2}
       propertyPath: endGame
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4497056454671362, guid: dce7142c56cd4a549ab481ea802eef99, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1369,6 +1369,11 @@ Prefab:
     - target: {fileID: 4060416621620978, guid: dce7142c56cd4a549ab481ea802eef99, type: 2}
       propertyPath: m_LocalPosition.y
       value: -25.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423781767858076, guid: dce7142c56cd4a549ab481ea802eef99,
+        type: 2}
+      propertyPath: nextLevelName
+      value: Level7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dce7142c56cd4a549ab481ea802eef99, type: 2}
