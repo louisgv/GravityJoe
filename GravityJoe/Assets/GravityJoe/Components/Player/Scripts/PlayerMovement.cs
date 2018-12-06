@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GravityJoe
 {
@@ -69,6 +70,12 @@ namespace GravityJoe
 
             // change velocity based on input
             rb2d.velocity = new Vector2((move * inAir) * 10f, rb2d.velocity.y);
+
+            //check for exit press
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("GiveUp");
+            }
         }
     }
 }

@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4080343997554086}
   - component: {fileID: 212234465586449866}
-  - component: {fileID: 58037517976677520}
   - component: {fileID: 50712923289276362}
   - component: {fileID: 114027580516844444}
   - component: {fileID: 114537113778828196}
   - component: {fileID: 114003569952869124}
+  - component: {fileID: 61571640323019682}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -121,7 +121,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0aeb809d15fd3454f9a9c19f5738ed04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,8 +168,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58037517976677520
-CircleCollider2D:
+--- !u!61 &61571640323019682
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -181,8 +181,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!65 &65699016640497222
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -225,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f28dce84437aef4a848add6489c9be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb2d: {fileID: 0}
   move: 0
   grounded: 0
   doubleJump: 0
