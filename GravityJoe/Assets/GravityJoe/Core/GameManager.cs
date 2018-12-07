@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GravityJoe
 {
@@ -13,10 +14,16 @@ namespace GravityJoe
         GameObject hangingObjectPrefab;
         [SerializeField]
         GameObject destructibleWallPrefab;
+        [SerializeField]
+        public int deathCount;
+        public static int allDeaths;
 
         // current gameObjects in scene
         Player currentPlayer;
         Platform currentPlatform;
+
+        Text deathL;
+        Text deathG;
 
         public List<GameObject> currentHangingObjects;
         public List<GameObject> currentDestructibleWalls;
@@ -27,6 +34,14 @@ namespace GravityJoe
         {
             currentPlayer = Utility.GetPlayer();
             currentPlatform = Utility.GetPlatform();
+            deathL = GameObject.Find("deathsL").GetComponent<Text>();
+            deathG = GameObject.Find("deathsG").GetComponent<Text>();
+        }
+
+        private void Update()
+        {
+            deathL.text = "Deaths on Level: " + deathCount;
+            deathG.text = "Death Total: " + (allDeaths+deathCount);
         }
 
         public void ResetLevel()
