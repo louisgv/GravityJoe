@@ -55173,6 +55173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateAmount: 90
+  rotateAngle: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1618050879
 Transform:
   m_ObjectHideFlags: 0
