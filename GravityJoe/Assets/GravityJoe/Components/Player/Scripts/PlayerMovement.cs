@@ -28,6 +28,13 @@ namespace GravityJoe
         // checks if player is in a space zone
         public bool inSpaceZone;
 
+        GameManager gameManager;
+
+        void Awake()
+        {
+            gameManager = Utility.GetGameManager();
+        }
+
         // Use this for initialization
         void Start()
         {
@@ -81,6 +88,7 @@ namespace GravityJoe
                 //check for exit press
                 if (Input.GetKeyDown(KeyCode.R))
                 {
+                    gameManager.deathCount = 0;
                     SceneManager.LoadScene("GiveUp");
                 }
             }

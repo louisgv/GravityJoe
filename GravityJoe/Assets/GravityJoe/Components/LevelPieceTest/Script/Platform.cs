@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace GravityJoe
 {
-
     public class Platform : MonoBehaviour
     {
+
+        public bool throughWalls;
 
         public float rotateAmount = 90.0f;
 
@@ -69,7 +70,10 @@ namespace GravityJoe
             if (player != null)
             {
                 player.transform.SetParent(transform);
-                player.Movement.rb2d.isKinematic = true; //<--commenting this out fixes going through walls
+                if (throughWalls)
+                {
+                    player.Movement.rb2d.isKinematic = true; //<--commenting this out fixes going through walls
+                }
                 //player.Movement.rb2d.velocity = Vector2.zero;
             }
 
@@ -84,7 +88,10 @@ namespace GravityJoe
             {
                 player.transform.SetParent(null);
                 player.transform.rotation = Quaternion.identity;
-                player.Movement.rb2d.isKinematic = false; //<--commenting this out fixes going through walls
+                if (throughWalls)
+                {
+                    player.Movement.rb2d.isKinematic = false; //<--commenting this out fixes going through walls
+                }
             }
 
 

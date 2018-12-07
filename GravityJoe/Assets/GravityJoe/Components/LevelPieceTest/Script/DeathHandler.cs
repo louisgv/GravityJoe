@@ -19,6 +19,7 @@ namespace GravityJoe
             if (col.CompareTag("Player"))
             {
                 // Destroy(col.gameObject);
+                gameManager.deathCount++;
                 gameManager.ResetLevel();
             }
         }
