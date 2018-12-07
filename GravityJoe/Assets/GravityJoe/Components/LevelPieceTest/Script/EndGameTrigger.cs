@@ -15,8 +15,8 @@ namespace GravityJoe
         {
             if (endGame)
             {
-                Time.timeScale = 0f;
-                winText.SetActive(true);
+                //Time.timeScale = 0f;
+                SceneManager.LoadScene("WinScreen");
                 return;
             }
             SceneManager.LoadScene(nextLevelName);

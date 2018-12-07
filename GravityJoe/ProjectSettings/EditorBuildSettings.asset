@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GravityJoe/Scenes/Level6.unity
     guid: 91b6e3511d94bb744a76aa3db15c0efa
+  - enabled: 1
+    path: Assets/GravityJoe/Scenes/WinScreen.unity
+    guid: fca01ee4abb067c4697df81fd3467219
+  - enabled: 1
+    path: Assets/GravityJoe/Scenes/GiveUp.unity
+    guid: 7c0f1fc1b5d4017408f1172e41214eaa
   m_configObjects: {}
